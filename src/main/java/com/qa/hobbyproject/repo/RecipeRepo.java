@@ -16,4 +16,4 @@ import com.qa.hobbyproject.domain.Recipe;
 		List<Recipe> findByRecipeCategoryIgnoreCase(String recipeCategory);
 	}
 	
-
+	
