@@ -4,10 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import org.springframework.data.annotation.Id;
 
 @Entity
+
 public class Recipe {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +23,8 @@ public class Recipe {
 	@Column (nullable=false)
 	private Integer servings;
 	
-	@Column (nullable=false)
-	private Double cookingTime;
+	@Column 
+	private String cookingTime;
 	
 	@Column (nullable=false)
 	private String ingredients;
@@ -32,7 +33,7 @@ public class Recipe {
 		super();
 	}
 	
-	public Recipe(Integer id, String recipeName, String recipeCategory, Integer servings, Double cookingTime,
+	public Recipe(Integer id, String recipeName, String recipeCategory, Integer servings, String cookingTime,
 			String ingredients) {
 		super();
 		this.id = id;
@@ -75,11 +76,11 @@ public class Recipe {
 		this.servings = servings;
 	}
 
-	public Double getCookingTime() {
+	public String getCookingTime() {
 		return cookingTime;
 	}
 
-	public void setCookingTime(Double cookingTime) {
+	public void setCookingTime(String cookingTime) {
 		this.cookingTime = cookingTime;
 	}
 
@@ -87,17 +88,18 @@ public class Recipe {
 		return ingredients;
 	}
 
+
 	public void setIngredients(String ingredients) {
 		this.ingredients = ingredients;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Recipe [id=" + id + ", recipeName=" + recipeName + ", recipeCategory=" + recipeCategory + ", servings="
 				+ servings + ", cookingTime=" + cookingTime + ", ingredients=" + ingredients + "]";
+
+
 	}
-	
-	
 	
 	
 

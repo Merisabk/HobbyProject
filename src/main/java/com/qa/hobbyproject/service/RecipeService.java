@@ -22,27 +22,27 @@ import com.qa.hobbyproject.repo.RecipeRepo;
 	
 	//CRUD
 
-	@Override
+
 	//Insert into Recipe
 	public Recipe create(Recipe recipe) {
 		Recipe created = this.repo.save(recipe);
 		return created;
 	}
 
-	@Override
+
 	//Select * from recipe
 	public List<Recipe> getAll() {
 		return this.repo.findAll();
 	}
 
-	@Override
+	
 	// select * from recipe where id =? 
 	public Recipe getOne(Integer id) {
 	Optional<Recipe> found = this.repo.findById(id);
 		return found.get();
 	}
 
-	@Override
+	
 	//Update
 	public Recipe update(Integer id, Recipe newRecipe) {
 		Recipe existing = this.repo.findById(id).get();
@@ -55,7 +55,7 @@ import com.qa.hobbyproject.repo.RecipeRepo;
 		return updated;
 	}
 
-	@Override
+	
 	// DELETE from Recipe where id = ? 
 	public void remove(Integer id) {
 		this.repo.deleteById(id);
