@@ -4,46 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hobby Project</title>
+    <title>Recipe App</title>
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
     <div>
     <h1>My List of Recipes</h1>
-    <button type="button">Sweet</button>
-    <button type="button">Savoury</button>
+    <button type="button" id="buttonSweet">Sweet</button>
+    <button type="button" id="buttonSavoury">Savoury</button> 
     </div>
-
+<ul id="listSweetRecipes"></ul>
+<ul id="listSavouryRecipes"></ul>
+<ul id ="listAllRecipes"style="list-style:none">
+    <li>
     <div>
     <h3>Salted Caramel Cheesecake</h3>
     <img src="https://www.carnation.co.uk/sites/default/files/2020-03/salted-caramel-cheesecake-tablet_0.png" alt="salted caramel cheesecake"/>
     <button type="button">Edit</button>
     <button type="button">Delete</button>
     </div>
+    </li>
+</ul>
 
     <div>
         <h2>Add recipe</h2>
         <form>
             <p>Recipe Name</p>
-            <input type="text" id="" class="form-control" />
+            <input type="text" id="inputRecipeName" class="form-control" />
 
             <p>Category</p>
-            <input type="text" id="" class="form-control" />
+            <input type="text" id="inputCategory" class="form-control" />
 
             <p>Servings</p>
-            <input type="text" id="" class="form-control" />
+            <input type="number" id="inputServings" class="form-control" />
 
             <p>Cooking time</p>
-            <input type="text" id="" class="form-control" />
+            <input type="text" id="inputCookingTime" class="form-control" />
 
             <p>Ingredients</p>
-            <input type="text" id="" class="form-control" />
+            <input type="text" id="inputIngredients" class="form-control" />
 
             <div>
-            <button type="button">Upload image</button>
-            <button type="button">Submit</button>
+            <button type="button" id="buttonUploadImage">Upload image</button>
+            <button type="button" id="buttonAddRecipe">Submit</button>
             </div>
+            
             
         </form>
     </div>
