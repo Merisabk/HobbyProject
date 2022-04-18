@@ -1,7 +1,9 @@
 package com.qa.hobbyproject.web;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -62,4 +64,62 @@ import com.qa.hobbyproject.domain.Recipe;
 		
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
+	
+	@Test
+	void testGetById() throws Exception {
+		RequestBuilder req = get("/get/1");
+		Recipe testRecipeById = new Recipe (1, "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley", "15 minutes" , 4, "savoury","Creamy Garlic Pasta");
+		String json = this.mapper.writeValueAsString(testRecipeById);
+		
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(json);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	void testUpdate() throws Exception {
+		Recipe testRecipe = new Recipe(null, "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley", "15 minutes" , 4, "savoury","Creamy Garlic Pasta");
+		String testRecipeAsJSON = this.mapper.writeValueAsString(testRecipe);
+		RequestBuilder req = put("/update/1").contentType(MediaType.APPLICATION_JSON).content(testRecipeAsJSON);
+		
+		Recipe testUpdatedRecipe = new Recipe (1, "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley", "15 minutes" , 4, "savoury","Creamy Garlic Pasta");
+		String testUpdatedRecipeAsJSON = this.mapper.writeValueAsString(testUpdatedRecipe);
+		
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(testUpdatedRecipeAsJSON);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	
+	@Test
+	void testDeleteRecipe() throws Exception {
+		this.mvc.perform(delete("/delete/1")).andExpect(status().isNoContent());
+	}
+	
+	@Test
+	void testGetByName() throws Exception {
+		RequestBuilder req = get("/getByName/Chocolate mug cake");
+		List<Recipe> testRecipeByName = List.of(new Recipe(1, "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley", "15 minutes" , 4, "savoury","Creamy Garlic Pasta"));
+		String json = this.mapper.writeValueAsString(testRecipeByName);
+		
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(json);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	void testGetByCategory() throws Exception {
+		RequestBuilder req = get("/getByCategory/savoury");
+		List<Recipe> testRecipeByCategory = List.of(new Recipe(1, "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley", "15 minutes" , 4, "savoury","Creamy Garlic Pasta"));
+		String json = this.mapper.writeValueAsString(testRecipeByCategory);
+		
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(json);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
 }
