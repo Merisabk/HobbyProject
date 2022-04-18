@@ -23,7 +23,7 @@ public class Recipe {
 	@Column (nullable=false)
 	private Integer servings;
 	
-	@Column 
+	@Column (nullable=false)
 	private String cookingTime;
 	
 	@Column (nullable=false)
