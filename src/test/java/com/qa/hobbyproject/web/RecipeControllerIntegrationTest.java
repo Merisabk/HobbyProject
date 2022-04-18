@@ -56,7 +56,7 @@ import com.qa.hobbyproject.domain.Recipe;
 	@Test
 	void testGetAll() throws Exception {
 		RequestBuilder req = get("/getAll");
-		List<Recipe> testRecipes = List.of(new Recipe (1, "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley", "15 minutes" , 4, "savoury","Creamy Garlic Pasta"), new Recipe (2, "4 tablespoon flour, 5 tablespoon sugar, 3 tablespoon cocoa powder, 1 pinch of salt, 1 egg, 3 tablespoon milk, 3 tablepoon butter, 3 tablespoon chocolate chips, 1 teaspoon vanilla extract", "5 minutes", 2, "sweet","Chocolate mug cake"));
+		List<Recipe> testRecipes = List.of(new Recipe (1, "Creamy Garlic Pasta", "savoury", 4, "15 minutes", "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley"), new Recipe (2, "Chocolate mug cake", "sweet", 2, "5 minutes", "4 tablespoon flour, 5 tablespoon sugar, 3 tablespoon cocoa powder, 1 pinch of salt, 1 egg, 3 tablespoon milk, 3 tablepoon butter, 3 tablespoon chocolate chips, 1 teaspoon vanilla extract"));
 		String json = this.mapper.writeValueAsString(testRecipes);
 		
 		ResultMatcher checkStatus = status().isOk();
@@ -68,7 +68,7 @@ import com.qa.hobbyproject.domain.Recipe;
 	@Test
 	void testGetById() throws Exception {
 		RequestBuilder req = get("/get/1");
-		Recipe testRecipeById = new Recipe (1, "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley", "15 minutes" , 4, "savoury","Creamy Garlic Pasta");
+		Recipe testRecipeById = new Recipe (1, "Creamy Garlic Pasta", "savoury", 4, "15 minutes", "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley");
 		String json = this.mapper.writeValueAsString(testRecipeById);
 		
 		ResultMatcher checkStatus = status().isOk();
@@ -100,8 +100,8 @@ import com.qa.hobbyproject.domain.Recipe;
 	
 	@Test
 	void testGetByName() throws Exception {
-		RequestBuilder req = get("/getByName/Chocolate mug cake");
-		List<Recipe> testRecipeByName = List.of(new Recipe(1, "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley", "15 minutes" , 4, "savoury","Creamy Garlic Pasta"));
+		RequestBuilder req = get("/getByName/Creamy Garlic Pasta");
+		List<Recipe> testRecipeByName = List.of(new Recipe(1, "Creamy Garlic Pasta", "savoury", 4, "15 minutes", "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley"));
 		String json = this.mapper.writeValueAsString(testRecipeByName);
 		
 		ResultMatcher checkStatus = status().isOk();
@@ -113,7 +113,7 @@ import com.qa.hobbyproject.domain.Recipe;
 	@Test
 	void testGetByCategory() throws Exception {
 		RequestBuilder req = get("/getByCategory/savoury");
-		List<Recipe> testRecipeByCategory = List.of(new Recipe(1, "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley", "15 minutes" , 4, "savoury","Creamy Garlic Pasta"));
+		List<Recipe> testRecipeByCategory = List.of(new Recipe(1, "Creamy Garlic Pasta", "savoury", 4, "15 minutes", "250g uncooked pasta, 1 tablespoon butter, 1 teapoon flour, 2-3 cloves garlic, 1/4cup chicken broth, 1 cup heavy cream, 1/3 cup grated parmesan cheese, salt, pepper, fresh parsley"));
 		String json = this.mapper.writeValueAsString(testRecipeByCategory);
 		
 		ResultMatcher checkStatus = status().isOk();

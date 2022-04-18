@@ -47,7 +47,7 @@ import com.qa.hobbyproject.repo.RecipeRepo;
 	public Recipe update(Integer id, Recipe newRecipe) {
 		Recipe existing = this.repo.findById(id).get();
 		existing.setRecipeName(newRecipe.getRecipeName());
-		existing.setRecipeCategory(newRecipe.getRecipeCategory());
+		existing.setCategory(newRecipe.getCategory());
 		existing.setCookingTime(newRecipe.getCookingTime());
 		existing.setIngredients(newRecipe.getIngredients());
 		existing.setServings(newRecipe.getServings());
@@ -68,8 +68,8 @@ public List<Recipe> getRecipeByName(String recipeName) {
 }
 
 // Select * from recipe where category =?
-public List<Recipe> getRecipeByCategory(String recipeCategory){
-	List<Recipe> found = this.repo.findByRecipeCategoryIgnoreCase(recipeCategory);
+public List<Recipe> getRecipeByCategory(String category){
+	List<Recipe> found = this.repo.findByCategoryIgnoreCase(category);
 	return found;
 }
 }

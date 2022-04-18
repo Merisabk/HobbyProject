@@ -13,7 +13,7 @@ import com.qa.hobbyproject.domain.Recipe;
 		//Spring will auto-generate the basic CRUD functionality.
 		
 		List<Recipe> findByRecipeNameIgnoreCase(String recipeName);
-		List<Recipe> findByRecipeCategoryIgnoreCase(String recipeCategory);
+		List<Recipe> findByCategoryIgnoreCase(String category);
 	}
 	
 	

@@ -18,7 +18,7 @@ public class Recipe {
 	private String recipeName;
 	
 	@Column (nullable=false)
-	private String recipeCategory;
+	private String category;
 	
 	@Column (nullable=false)
 	private Integer servings;
@@ -33,12 +33,12 @@ public class Recipe {
 		super();
 	}
 	
-	public Recipe(Integer id, String recipeName, String recipeCategory, Integer servings, String cookingTime,
+	public Recipe(Integer id, String recipeName, String category, Integer servings, String cookingTime,
 			String ingredients) {
 		super();
 		this.id = id;
 		this.recipeName = recipeName;
-		this.recipeCategory = recipeCategory;
+		this.category = category;
 		this.servings = servings;
 		this.cookingTime = cookingTime;
 		this.ingredients = ingredients;
@@ -60,12 +60,12 @@ public class Recipe {
 		this.recipeName = recipeName;
 	}
 
-	public String getRecipeCategory() {
-		return recipeCategory;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setRecipeCategory(String recipeCategory) {
-		this.recipeCategory = recipeCategory;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public Integer getServings() {
@@ -95,7 +95,7 @@ public class Recipe {
 	
 	@Override
 	public String toString() {
-		return "Recipe [id=" + id + ", recipeName=" + recipeName + ", recipeCategory=" + recipeCategory + ", servings="
+		return "Recipe [id=" + id + ", recipeName=" + recipeName + ", recipeCategory=" + category + ", servings="
 				+ servings + ", cookingTime=" + cookingTime + ", ingredients=" + ingredients + "]";
 
 
