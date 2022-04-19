@@ -11,7 +11,7 @@ const writeRecipe = recipe => {
 // list sweet recipes function 
 const writeSweetRecipe = recipe => {
     const child = document.createElement(`li`);
-    child.category = recipe._category;
+    child.id = recipe._id;
     child.innerHTML = `${JSON.stringify(recipe)}`;
     DOM.listSweetRecipes.appendChild(child);
 }
@@ -30,6 +30,7 @@ const get = () => {
 
     axios.get(`http://localhost:8080/getAll`)
     .then((response) => {
+        console.log(response.data);
         if (!Array.isArray(response.data)) {
             writeRecipe(response.data);
         } else {
@@ -46,13 +47,14 @@ const get = () => {
 const getSweet = () => {
     DOM.listSweetRecipes.innerHTML = ``;
 
-    axios.get(`http://localhost:8080/getByCategory/${buttonSweet.category}`)
+    axios.get(`http://localhost:8080/getByCategory/${DOM.buttonSweet.onclick.response.data.category}`)
     .then((response) => {
+        console.log(response.data);
         if (!Array.isArray(response.data)) {
-            writeRecipe(response.data);
+            writeSweetRecipe(response.data);
         } else {
             for (let recipe of response.data) {
-                writeRecipe(recipe);
+                writeSweetRecipe(recipe);
             }
         }
     }).catch((err) =>{
@@ -60,8 +62,6 @@ const getSweet = () => {
     });
 
     }
-
-
 
 // post function
 const post = () => {
@@ -73,17 +73,34 @@ const post = () => {
                                 ingredients: DOM.inputIngredients.value})
     .then((response) => {
         console.log(response);
-        getAll();
+        get();
     }).catch((err) => {
         console.log(err);
     });
 }
+
+//Put function 
+const put = () => {
+    axios.put(`/update/${input}`)
+}
+
+//delete function 
+const deleteRecipe = () => {
+    axios.delete(`/delete/${inputDelete.value}`)
+    .then ((response) => {
+        console.log(response);
+        get();
+      }).catch((err) => {
+        console.log(err);
+      })
+        }
 
 
 
 //buttons onclick 
 DOM.buttonAddRecipe.onclick = () => post();
 DOM.buttonSweet.onclick = () => getSweet();
+DOM.buttonDelete.onclick = () => 
 
 //run the getAll function on page load
 get();

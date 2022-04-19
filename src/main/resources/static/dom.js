@@ -6,7 +6,7 @@ export const inputIngredients = document.getElementById(`inputIngredients`);
 export const buttonUploadImage = document.getElementById(`buttonUploadImage`);
 export const buttonAddRecipe = document.getElementById(`buttonAddRecipe`);
 export const buttonEditRecipe = document.getElementById(`buttonEditRecipe`)
-export const buttonDeleteRecipe = document.getElementById(`buttonDeleteRecipe`)
+export const buttonDelete = document.getElementById(`buttonDelete`)
 
 
 export const buttonSweet = document.getElementById(`buttonSweet`);
@@ -15,3 +15,6 @@ export const buttonSavoury = document.getElementById(`buttonSavoury`);
 export const listSweetRecipes  = document.getElementById(`listSweetRecipes`);
 export const listSavouryRecipes  = document.getElementById(`listSavouryRecipes`);
 export const listAllRecipes  = document.getElementById(`listAllRecipes`);
+
+export const getSweet = document.getElementsByClassName(`sweet`);
+export const getSavoury = document.getElementsByClassName(`savoury`);
