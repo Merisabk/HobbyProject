@@ -27,3 +27,5 @@ export const listAllRecipes  = document.getElementById(`listAllRecipes`);
 
 export const getSweet = document.getElementsByClassName(`sweet`);
 export const getSavoury = document.getElementsByClassName(`savoury`);
+
+export const myTable = document.getElementById(`myTable`);

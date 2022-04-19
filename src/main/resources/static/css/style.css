@@ -17,7 +17,7 @@ Gap:8px;
 }
 
 .buttonGeneral {
-    display: flex;
+display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
@@ -31,4 +31,11 @@ background: #FFFFFF;
 border: 1px solid #000000;
 box-sizing: border-box;
 border-radius: 2px;
+}
+
+#listAllRecipes {
+    list-style:none;
+}
+li {
+
 }

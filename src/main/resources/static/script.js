@@ -1,3 +1,4 @@
+"use strict"
 import * as DOM from './dom.js'
 
 // list recipe function
@@ -8,37 +9,67 @@ const writeRecipe = recipe => {
     DOM.listAllRecipes.appendChild(child);
 }
 
+
 //Get All function
 const get = () => {
     DOM.listAllRecipes.innerHTML = ``;
 
     axios.get(`http://localhost:8080/getAll`)
     .then((response) => {
-        if (!Array.isArray(response.data)) {
-            writeRecipe(response.data);
-        } else {
-            for (let recipe of response.data) {
-                writeRecipe(recipe);
-            }
+        console.log(response.data)
+        myArray = response.data;
+        buildTable(myArray)
         }
-    }).catch((err) =>{
+    ).catch((err) =>{
         console.log(err);
     });
 }
 
+let myArray = [];
+// my table function 
+const buildTable = (data) => {
+    let table = DOM.myTable;
+    for (let i = 0; i < data.length; i++) {
+        let row = `<tr>
+                        <td>${data[i].id}</td>
+                        <td>${data[i].recipeName}</td>
+                        <td>${data[i].category}</td>
+                        <td>${data[i].servings}</td>
+                        <td>${data[i].cookingTime}</td>
+                        <td>${data[i].ingredients}</td>
+                        </tr>`
+            table.innerHTML += row;
+    }
+
+}
+
+let writeSweet = [];
+// my table function 
+const buildTableSweet = (data) => {
+    let table = DOM.myTable;
+
+    for (let i = 0; i < data.length; i++) {
+        let row = `<tr>
+                        <td>${data[i].id}</td>
+                        <td>${data[i].recipeName}</td>
+                        <td>${data[i].category}</td>
+                        <td>${data[i].servings}</td>
+                        <td>${data[i].cookingTime}</td>
+                        <td>${data[i].ingredients}</td>
+                        </tr>`
+            table.innerHTML += row
+    }
+
+}
 // Get Sweet recipes 
 const getSweet = () => {
     DOM.listAllRecipes.innerHTML = ``;
 
     axios.get(`http://localhost:8080/getByCategory/sweet`)
     .then((response) => {
-        if (!Array.isArray(response.data)) {
-            writeRecipe(response.data);
-        } else {
-            for (let recipe of response.data) {
-                writeRecipe(recipe);
-            }
-        }
+        writeSweet = response.data;
+        buildTable(writeSweet)
+        console.log(writeSweet)
     }).catch((err) =>{
         console.log(err);
     });
@@ -52,13 +83,9 @@ const getSavoury = () => {
 
     axios.get(`http://localhost:8080/getByCategory/savoury`)
     .then((response) => {
-        if (!Array.isArray(response.data)) {
-            writeRecipe(response.data);
-        } else {
-            for (let recipe of response.data) {
-                writeRecipe(recipe);
-            }
-        }
+        myArray = response.data;
+        buildTable(myArray)
+        console.log(myArray)
     }).catch((err) =>{
         console.log(err);
     });
