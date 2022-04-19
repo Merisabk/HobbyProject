@@ -8,6 +8,22 @@ const writeRecipe = recipe => {
     DOM.listAllRecipes.appendChild(child);
 }
 
+// list sweet recipes function 
+const writeSweetRecipe = recipe => {
+    const child = document.createElement(`li`);
+    child.id = recipe._id;
+    child.innerHTML = `${JSON.stringify(recipe)}`;
+    DOM.listSweetRecipes.appendChild(child);
+}
+
+//list savoury recipes function 
+const writeSavouryRecipe = recipe => {
+    const child = document.createElement(`li`);
+    child.id = recipe._id;
+    child.innerHTML = `${JSON.stringify(recipe)}`;
+    DOM.listSavouryRecipes.appendChild(child);
+}
+
 //Get All function
 const get = () => {
     DOM.listAllRecipes.innerHTML = ``;
@@ -25,6 +41,26 @@ const get = () => {
         console.log(err);
     });
 }
+
+// Get Sweet recipes 
+const getSweet = () => {
+    DOM.listSweetRecipes.innerHTML = ``;
+
+    axios.get(`http://localhost:8080/getByCategory/sweet`)
+    .then((response) => {
+        if (!Array.isArray(response.data)) {
+            writeSweetRecipe(response.data);
+        } else {
+            for (let recipe of response.data) {
+                writeSweetRecipe(recipe);
+            }
+        }
+    }).catch((err) =>{
+        console.log(err);
+    });
+
+    }
+
 
 
 // post function
@@ -47,7 +83,7 @@ const post = () => {
 
 //buttons onclick 
 DOM.buttonAddRecipe.onclick = () => post();
-
+DOM.buttonSweet.onclick = () => getSweet();
 
 //run the getAll function on page load
 get();
