@@ -8,21 +8,21 @@ const writeRecipe = recipe => {
     DOM.listAllRecipes.appendChild(child);
 }
 
-// list sweet recipes function 
-const writeSweetRecipe = recipe => {
-    const child = document.createElement(`li`);
-    child.id = recipe._id;
-    child.innerHTML = `${JSON.stringify(recipe)}`;
-    DOM.listSweetRecipes.appendChild(child);
-}
+// // list sweet recipes function 
+// const writeSweetRecipe = recipe => {
+//     const child = document.createElement(`li`);
+//     child.id = recipe._id;
+//     child.innerHTML = `${JSON.stringify(recipe)}`;
+//     DOM.listSweetRecipes.appendChild(child);
+// }
 
-//list savoury recipes function 
-const writeSavouryRecipe = recipe => {
-    const child = document.createElement(`li`);
-    child.id = recipe._id;
-    child.innerHTML = `${JSON.stringify(recipe)}`;
-    DOM.listSavouryRecipes.appendChild(child);
-}
+// //list savoury recipes function 
+// const writeSavouryRecipe = recipe => {
+//     const child = document.createElement(`li`);
+//     child.id = recipe._id;
+//     child.innerHTML = `${JSON.stringify(recipe)}`;
+//     DOM.listSavouryRecipes.appendChild(child);
+// }
 
 //Get All function
 const get = () => {
@@ -123,4 +123,4 @@ DOM.buttonAddRecipe.onclick = () => post();
 DOM.buttonSweet.onclick = () => getSweet();
 DOM.buttonSavoury.onclick = () => getSavoury();
 DOM.buttonAllRecipes.onclick = () => get();
-// DOM.buttonDelete.onclick = () => 
+DOM.buttonDelete.onclick = () => deleteRecipe(); 
