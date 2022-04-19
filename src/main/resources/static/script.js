@@ -101,8 +101,19 @@ const post = () => {
 }
 
 //Put function 
-const put = () => {
-    axios.put(`/update/${input}`)
+const updateRecipe = () => {
+    axios.put(`/update/${inputId.value}`, {
+        recipeName: DOM.updateRecipeName.value,
+                                category: DOM.updateCategory.value,
+                                servings: DOM.updateServings.value,
+                                cookingTime: DOM.updateCookingTime.value,
+                                ingredients: DOM.updateIngredients.value})
+    .then((response) => {
+        console.log(response);
+        get();
+    }).catch((err) => {
+        console.log(err);
+    });
 }
 
 //delete function 
@@ -123,4 +134,6 @@ DOM.buttonAddRecipe.onclick = () => post();
 DOM.buttonSweet.onclick = () => getSweet();
 DOM.buttonSavoury.onclick = () => getSavoury();
 DOM.buttonAllRecipes.onclick = () => get();
+DOM.buttonUpdate.onclick = () => updateRecipe();
 DOM.buttonDelete.onclick = () => deleteRecipe(); 
+

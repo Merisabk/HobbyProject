@@ -7,6 +7,14 @@ export const buttonUploadImage = document.getElementById(`buttonUploadImage`);
 export const buttonAddRecipe = document.getElementById(`buttonAddRecipe`);
 export const buttonEditRecipe = document.getElementById(`buttonEditRecipe`)
 export const buttonDelete = document.getElementById(`buttonDelete`)
+export const buttonUpdate = document.getElementById(`buttonUpdate`)
+
+export const updateRecipeName = document.getElementById(`updateRecipeName`);
+export const updateCategory = document.getElementById(`updateCategory`);
+export const updateServings = document.getElementById(`updateServings`);
+export const updateCookingTime = document.getElementById(`updateCookingTime`);
+export const updateIngredients = document.getElementById(`updateIngredients`);
+
 
 
 export const buttonSweet = document.getElementById(`buttonSweet`);

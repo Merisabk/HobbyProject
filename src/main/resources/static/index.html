@@ -60,12 +60,27 @@
 
     <div>
         <form>
-            <h2>Delete a recipe</h2>
-            <input type="text" id="inputDelete" class="form-control" placeholder="enter Recipe id you would like to delete" />
+            <h2>Update recipe</h2>
+            <input type="number" id="inputId" class="form-control" placeholder="enter Recipe id you would like to update" />
+            <input type="text" id="updateRecipeName"class="form-control" placeholder="Enter Recipe name"/>
+            <input type="text" id="updateCategory" placeholder="Enter Recipe category" class="form-control" />
+            <input type="number" id="updateServings" placeholder="Enter Servings"class="form-control" />
+            <input type="text" id="updateCookingTime" placeholder="Enter cooking time" class="form-control" />
+            <input type="text" id="updateIngredients" placeholder="Enter ingredients" class="form-control" />
+            <button type="button" class="btn btn-primary mt-2" id="buttonUpdate">Update</button>
+        </form>
+</div>
+
+    <div>
+        <form>
+            <h2>Delete recipe</h2>
+            <input type="number" id="inputDelete" class="form-control" placeholder="enter Recipe id you would like to delete" />
             <button type="button" class="btn btn-primary mt-2" id="buttonDelete">DELETE</button>
         </form>
 
 </div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="module" src="script.js"></script>
  <!-- JavaScript Bundle with Popper -->
