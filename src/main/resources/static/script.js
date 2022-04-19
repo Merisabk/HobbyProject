@@ -11,7 +11,7 @@ const writeRecipe = recipe => {
 // list sweet recipes function 
 const writeSweetRecipe = recipe => {
     const child = document.createElement(`li`);
-    child.id = recipe._id;
+    child.category = recipe._category;
     child.innerHTML = `${JSON.stringify(recipe)}`;
     DOM.listSweetRecipes.appendChild(child);
 }
@@ -46,13 +46,13 @@ const get = () => {
 const getSweet = () => {
     DOM.listSweetRecipes.innerHTML = ``;
 
-    axios.get(`http://localhost:8080/getByCategory/sweet`)
+    axios.get(`http://localhost:8080/getByCategory/${buttonSweet.category}`)
     .then((response) => {
         if (!Array.isArray(response.data)) {
-            writeSweetRecipe(response.data);
+            writeRecipe(response.data);
         } else {
             for (let recipe of response.data) {
-                writeSweetRecipe(recipe);
+                writeRecipe(recipe);
             }
         }
     }).catch((err) =>{
