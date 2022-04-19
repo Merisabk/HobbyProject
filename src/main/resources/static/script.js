@@ -47,7 +47,7 @@ const get = () => {
 const getSweet = () => {
     DOM.listSweetRecipes.innerHTML = ``;
 
-    axios.get(`http://localhost:8080/getByCategory/${DOM.buttonSweet.onclick.response.data.category}`)
+    axios.get(`http://localhost:8080/getByCategory/sweet`)
     .then((response) => {
         console.log(response.data);
         if (!Array.isArray(response.data)) {
@@ -55,6 +55,27 @@ const getSweet = () => {
         } else {
             for (let recipe of response.data) {
                 writeSweetRecipe(recipe);
+            }
+        }
+    }).catch((err) =>{
+        console.log(err);
+    });
+
+    }
+
+
+// get Savoury function 
+const getSavoury = () => {
+    DOM.listSavouryRecipes.innerHTML = ``;
+
+    axios.get(`http://localhost:8080/getByCategory/savoury`)
+    .then((response) => {
+        console.log(response.data);
+        if (!Array.isArray(response.data)) {
+            writeSavouryRecipe(response.data);
+        } else {
+            for (let recipe of response.data) {
+                writeSavouryRecipe(recipe);
             }
         }
     }).catch((err) =>{
@@ -100,6 +121,7 @@ const deleteRecipe = () => {
 //buttons onclick 
 DOM.buttonAddRecipe.onclick = () => post();
 DOM.buttonSweet.onclick = () => getSweet();
+DOM.buttonSavoury.onclick = () => getSavoury();
 DOM.buttonDelete.onclick = () => 
 
 //run the getAll function on page load
