@@ -11,6 +11,7 @@ export const buttonDelete = document.getElementById(`buttonDelete`)
 
 export const buttonSweet = document.getElementById(`buttonSweet`);
 export const buttonSavoury = document.getElementById(`buttonSavoury`);
+export const buttonAllRecipes = document.getElementById(`buttonAllRecipes`);
 
 export const listSweetRecipes  = document.getElementById(`listSweetRecipes`);
 export const listSavouryRecipes  = document.getElementById(`listSavouryRecipes`);
