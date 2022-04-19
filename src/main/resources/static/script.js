@@ -9,10 +9,10 @@ const writeRecipe = recipe => {
 }
 
 //Get All function
-const getAll = () => {
+const get = () => {
     DOM.listAllRecipes.innerHTML = ``;
 
-    axios.get(`/getAll`)
+    axios.get(`http://localhost:8080/getAll`)
     .then((response) => {
         if (!Array.isArray(response.data)) {
             writeRecipe(response.data);
@@ -29,8 +29,8 @@ const getAll = () => {
 
 // post function
 const post = () => {
-    axios.post(`/create`, {    
-                                name: DOM.inputRecipeName.value,
+    axios.post(`http://localhost:8080/create`, {    
+                                recipeName: DOM.inputRecipeName.value,
                                 category: DOM.inputCategory.value,
                                 servings: DOM.inputServings.value,
                                 cookingTime: DOM.inputCookingTime.value,
@@ -47,3 +47,7 @@ const post = () => {
 
 //buttons onclick 
 DOM.buttonAddRecipe.onclick = () => post();
+
+
+//run the getAll function on page load
+get();
