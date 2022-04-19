@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe App</title>
@@ -13,9 +13,9 @@
 <body>
     <h1>My List of Recipes</h1>
     
-    <button type="button" id="buttonAllRecipes">All Recipes</button>
-    <button type="button" id="buttonSweet">Sweet</button>
-    <button type="button" id="buttonSavoury">Savoury</button> 
+    <button type="button" class= "buttonNav" id="buttonAllRecipes">All Recipes</button>
+    <button type="button" class= "buttonNav" id="buttonSweet">Sweet</button>
+    <button type="button" class= "buttonNav" id="buttonSavoury">Savoury</button> 
     </div>
     <div>
 <ul id ="listAllRecipes"> </ul>
@@ -37,7 +37,7 @@
         <form>
             <div class="row mb-3">
          <label for="inputRecipeName" class="col-sm-0 col-form-label">Recipe Name: </label>
-         <div class="col-sm-5">
+         <div class="col-sm-6">
             <input type="text" id="inputRecipeName" class="form-control" />
             </div>
             </div>
@@ -45,28 +45,28 @@
             
             <div class="row mb-3">
                 <label for="inputCategory" class="col-sm-0 col-form-label">Category: </label>
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <input type="text" id="inputCategory" class="form-control" />
                    </div>
                    </div>
             
                    <div class="row mb-3">
                     <label for="inputServings" class="col-sm-0 col-form-label">Servings: </label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <input type="number" id="inputServings" class="form-control" />
                        </div>
                        </div>
 
                        <div class="row mb-3">
                         <label for="inputCookingTime" class="col-sm-0 col-form-label">Cooking Time: </label>
-                        <div class="col-sm-5">
+                        <div class="col-sm-6">
                             <input type="text" id="inputCookingTime" class="form-control" />
                            </div>
                            </div>    
                            
                            <div class="row mb-3">
                             <label for="inputIngredients" class="col-sm-0 col-form-label">Ingredients: </label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-6">
                                 <input type="text" id="inputIngredients" class="form-control" />
                                </div>
                                </div>   
@@ -74,11 +74,10 @@
     
 
             
+            
+            <button type="button" class="buttonGeneral" id="buttonUploadImage">Upload image</button>
             <br>
-            <div>
-            <button type="button" id="buttonUploadImage">Upload image</button>
-            <br>
-            <button type="button" id="buttonAddRecipe">Submit</button>
+            <button type="button" class="buttonGeneral" id="buttonAddRecipe">Submit</button>
             
             
             
@@ -86,16 +85,49 @@
     </div>
 
     <div>
-        <form>
+        
             <h2>Update recipe</h2>
-         
-            <input type="number" id="inputId" class="form-control" placeholder="enter Recipe id you would like to update" />
-            <input type="text" id="updateRecipeName"class="form-control" placeholder="Enter Recipe name"/>
-            <input type="text" id="updateCategory" placeholder="Enter Recipe category" class="form-control" />
-            <input type="number" id="updateServings" placeholder="Enter Servings"class="form-control" />
-            <input type="text" id="updateCookingTime" placeholder="Enter cooking time" class="form-control" />
-            <input type="text" id="updateIngredients" placeholder="Enter ingredients" class="form-control" />
-            <button type="button" class="btn btn-primary mt-2" id="buttonUpdate">Update</button>
+            <form>
+                <label for="inputRecipeId" class="col-sm-0 col-form-label">Recipe Id: </label>
+                <input type="number" id="inputRecipeId" class="form-control" placeholder="enter Recipe id you would like to update" />
+                
+                <div class="row mb-3">
+             <label for="inputRecipeName" class="col-sm-0 col-form-label">Recipe Name: </label>
+             <div class="col-sm-6">
+                <input type="text" id="inputRecipeName" class="form-control" />
+                </div>
+                </div>
+    
+                
+                <div class="row mb-3">
+                    <label for="inputCategory" class="col-sm-0 col-form-label">Category: </label>
+                    <div class="col-sm-6">
+                        <input type="text" id="inputCategory" class="form-control" />
+                       </div>
+                       </div>
+                
+                       <div class="row mb-3">
+                        <label for="inputServings" class="col-sm-0 col-form-label">Servings: </label>
+                        <div class="col-sm-6">
+                            <input type="number" id="inputServings" class="form-control" />
+                           </div>
+                           </div>
+    
+                           <div class="row mb-3">
+                            <label for="inputCookingTime" class="col-sm-0 col-form-label">Cooking Time: </label>
+                            <div class="col-sm-6">
+                                <input type="text" id="inputCookingTime" class="form-control" />
+                               </div>
+                               </div>    
+                               
+                               <div class="row mb-3">
+                                <label for="inputIngredients" class="col-sm-0 col-form-label">Ingredients: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="inputIngredients" class="form-control" />
+                                   </div>
+                                   </div>   
+        
+            <button type="button" class="buttonGeneral" id="buttonUpdate">Update</button>
         </form>
 </div>
 
@@ -103,7 +135,7 @@
         <form>
             <h2>Delete recipe</h2>
             <input type="number" id="inputDelete" class="form-control" placeholder="enter Recipe id you would like to delete" />
-            <button type="button" class="btn btn-primary mt-2" id="buttonDelete">DELETE</button>
+            <button type="button" class="buttonGeneral" id="buttonDelete">Delete</button>
         </form>
 
 </div>
