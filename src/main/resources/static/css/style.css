@@ -36,6 +36,7 @@ border-radius: 2px;
 #listAllRecipes {
     list-style:none;
 }
-li {
+.first-row {
+    justify-content: center;
 
 }
