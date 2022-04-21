@@ -29,7 +29,6 @@ import com.qa.hobbyproject.repo.RecipeRepo;
 		return created;
 	}
 
-
 	//Select * from recipe
 	public List<Recipe> getAll() {
 		return this.repo.findAll();

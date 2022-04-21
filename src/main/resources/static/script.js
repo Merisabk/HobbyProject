@@ -10,10 +10,39 @@ const writeRecipe = recipe => {
 }
 
 
+//button function 
+// DOM.inputImage.addEventListener("change", function() {
+//     const reader = new FileReader();
+
+//     reader.addEventListener("load", () => {
+//         localStorage.setItem("recent-image", reader.result);
+//     })
+
+//     reader.readAsDataURL(this.files[0]);
+
+    
+// });
+
+// display img function
+let uploadedImage = "";
+DOM.inputImage.addEventListener("change", function(e){
+    const reader = new FileReader();
+    reader.onload = function() {
+        const img = new Image();
+        img.src = reader.result;
+        uploadedImage = img;
+        DOM.displayImage = `URL${uploadedImage}`
+    };
+    // reader.addEventListener("load", () => {
+    //     console.log(reader.result);
+    //     uploadedImage = reader.result;
+    //     DOM.displayImage = `url${uploadedImage}`;
+    // });
+    reader.readAsDataURL(this.files[0]);
+}, false);
+
 //Get All function
 const get = () => {
-    DOM.listAllRecipes.innerHTML = ``;
-
     axios.get(`http://localhost:8080/getAll`)
     .then((response) => {
         console.log(response.data)
@@ -29,6 +58,7 @@ let myArray = [];
 // my table function 
 const buildTable = (data) => {
     let table = DOM.myTable;
+    table.innerHTML = ``;
     for (let i = 0; i < data.length; i++) {
         let row = `<tr>
                         <td>${data[i].id}</td>
@@ -37,39 +67,20 @@ const buildTable = (data) => {
                         <td>${data[i].servings}</td>
                         <td>${data[i].cookingTime}</td>
                         <td>${data[i].ingredients}</td>
+                        <td><img src=${DOM.inputImage}></td>
                         </tr>`
             table.innerHTML += row;
     }
 
 }
 
-let writeSweet = [];
-// my table function 
-const buildTableSweet = (data) => {
-    let table = DOM.myTable;
-
-    for (let i = 0; i < data.length; i++) {
-        let row = `<tr>
-                        <td>${data[i].id}</td>
-                        <td>${data[i].recipeName}</td>
-                        <td>${data[i].category}</td>
-                        <td>${data[i].servings}</td>
-                        <td>${data[i].cookingTime}</td>
-                        <td>${data[i].ingredients}</td>
-                        </tr>`
-            table.innerHTML += row
-    }
-
-}
 // Get Sweet recipes 
 const getSweet = () => {
-    DOM.listAllRecipes.innerHTML = ``;
-
     axios.get(`http://localhost:8080/getByCategory/sweet`)
     .then((response) => {
-        writeSweet = response.data;
-        buildTable(writeSweet)
-        console.log(writeSweet)
+        myArray = response.data;
+        buildTable(myArray)
+        console.log(myArray)
     }).catch((err) =>{
         console.log(err);
     });
@@ -79,8 +90,6 @@ const getSweet = () => {
 
 // get Savoury function 
 const getSavoury = () => {
-    DOM.listAllRecipes.innerHTML = ``;
-
     axios.get(`http://localhost:8080/getByCategory/savoury`)
     .then((response) => {
         myArray = response.data;
@@ -99,7 +108,8 @@ const post = () => {
                                 category: DOM.inputCategory.value,
                                 servings: DOM.inputServings.value,
                                 cookingTime: DOM.inputCookingTime.value,
-                                ingredients: DOM.inputIngredients.value})
+                                ingredients: DOM.inputIngredients.value
+                            })
     .then((response) => {
         get();
     }).catch((err) => {
@@ -143,3 +153,4 @@ DOM.buttonAllRecipes.onclick = () => get();
 DOM.buttonUpdate.onclick = () => updateRecipe();
 DOM.buttonDelete.onclick = () => deleteRecipe(); 
 
+get();

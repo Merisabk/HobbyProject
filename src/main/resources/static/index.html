@@ -31,6 +31,8 @@
             <th>Servings</th>
             <th>Cooking_time</th>
             <th>Ingredients</th>
+            <th id="displayImage">Image</th>
+
         </tr>
     
         <tbody id="myTable">
@@ -89,11 +91,15 @@
                                </div>
                                </div>   
 
-    
+                               <div class="row mb-3">
+                                <label for="inputImage" class="col-sm-0 col-form-label">Image: </label>
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control" id="inputImage" accept="image/png, image/jpg">
+                                   </div>
+                                   </div>
 
-            
-            
-            <button type="button" class="buttonGeneral" id="buttonUploadImage">Upload image</button>
+    
+            <!-- <button type="submit" class="buttonGeneral" id="buttonUploadImage">Upload image</button> -->
             <br>
             <button type="button" class="buttonGeneral" id="buttonAddRecipe">Submit</button>
             
@@ -144,6 +150,20 @@
                                     <input type="text" id="inputIngredients" class="form-control" />
                                    </div>
                                    </div>   
+                              <div class="row mb-3">
+                                <label for="inputIngredients" class="col-sm-0 col-form-label">Ingredients: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="inputIngredients" class="form-control" />
+                                   </div>
+                                   </div> 
+
+  <div class="row mb-3">
+                                <label for="inputIngredients" class="col-sm-0 col-form-label">Ingredients: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="inputIngredients" class="form-control" />
+                                   </div>
+                                   </div> 
+
         
             <button type="button" class="buttonGeneral" id="buttonUpdate">Update</button>
         </form>
