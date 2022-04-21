@@ -21,9 +21,11 @@ export const buttonSweet = document.getElementById(`buttonSweet`);
 export const buttonSavoury = document.getElementById(`buttonSavoury`);
 export const buttonAllRecipes = document.getElementById(`buttonAllRecipes`);
 
-export const listSweetRecipes  = document.getElementById(`listSweetRecipes`);
-export const listSavouryRecipes  = document.getElementById(`listSavouryRecipes`);
 export const listAllRecipes  = document.getElementById(`listAllRecipes`);
 
-export const getSweet = document.getElementsByClassName(`sweet`);
-export const getSavoury = document.getElementsByClassName(`savoury`);
+
+export const myTable = document.getElementById(`myTable`);
+
+export const inputImage = document.querySelector(`#inputImage`);
+
+export const displayImage = document.querySelector(`#displayImage`);

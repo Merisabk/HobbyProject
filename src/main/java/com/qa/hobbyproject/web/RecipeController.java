@@ -82,6 +82,7 @@ public class RecipeController {
 		List<Recipe> found = this.service.getRecipeByCategory(category);
 		return ResponseEntity.ok(found);
 	}
+	
 
 }
 
