@@ -10,40 +10,28 @@ const writeRecipe = recipe => {
 }
 
 
-//button function 
-// DOM.inputImage.addEventListener("change", function() {
-//     const reader = new FileReader();
-
-//     reader.addEventListener("load", () => {
-//         localStorage.setItem("recent-image", reader.result);
-//     })
-
-//     reader.readAsDataURL(this.files[0]);
-
-    
-// });
-
 // display img function
-let uploadedImage = "";
-DOM.inputImage.addEventListener("change", function(e){
-    const reader = new FileReader();
-    reader.onload = function() {
-        const img = new Image();
-        img.src = reader.result;
-        uploadedImage = img;
-        DOM.displayImage = `URL${uploadedImage}`
-    };
+// const displayImage = () => {
+// let uploadedImage = "";
+// DOM.inputImage.addEventListener("change", function(e){
+//     const reader = new FileReader();
+//     reader.onload = function() {
+//         const img = new Image();
+//         img.src = reader.result;
+//         uploadedImage = img;
+//     };
     // reader.addEventListener("load", () => {
     //     console.log(reader.result);
     //     uploadedImage = reader.result;
     //     DOM.displayImage = `url${uploadedImage}`;
     // });
-    reader.readAsDataURL(this.files[0]);
-}, false);
+//     reader.readAsDataURL(this.files[0]);
+// }, false);
+// }
 
 //Get All function
 const get = () => {
-    axios.get(`http://localhost:8080/getAll`)
+    axios.get(`/getAll`)
     .then((response) => {
         console.log(response.data)
         myArray = response.data;
@@ -67,7 +55,6 @@ const buildTable = (data) => {
                         <td>${data[i].servings}</td>
                         <td>${data[i].cookingTime}</td>
                         <td>${data[i].ingredients}</td>
-                        <td><img src=${DOM.inputImage}></td>
                         </tr>`
             table.innerHTML += row;
     }
@@ -76,7 +63,7 @@ const buildTable = (data) => {
 
 // Get Sweet recipes 
 const getSweet = () => {
-    axios.get(`http://localhost:8080/getByCategory/sweet`)
+    axios.get(`/getByCategory/sweet`)
     .then((response) => {
         myArray = response.data;
         buildTable(myArray)
@@ -90,7 +77,7 @@ const getSweet = () => {
 
 // get Savoury function 
 const getSavoury = () => {
-    axios.get(`http://localhost:8080/getByCategory/savoury`)
+    axios.get(`/getByCategory/savoury`)
     .then((response) => {
         myArray = response.data;
         buildTable(myArray)
@@ -103,7 +90,7 @@ const getSavoury = () => {
 
 // post function
 const post = () => {
-    axios.post(`http://localhost:8080/create`, {    
+    axios.post(`/create`, {    
                                 recipeName: DOM.inputRecipeName.value,
                                 category: DOM.inputCategory.value,
                                 servings: DOM.inputServings.value,
@@ -119,7 +106,7 @@ const post = () => {
 
 //Put function 
 const updateRecipe = () => {
-    axios.put(`/update/${inputId.value}`, {
+    axios.put(`/update/${inputRecipeId.value}`, {
         recipeName: DOM.updateRecipeName.value,
                                 category: DOM.updateCategory.value,
                                 servings: DOM.updateServings.value,
