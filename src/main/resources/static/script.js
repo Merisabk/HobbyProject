@@ -141,3 +141,16 @@ DOM.buttonUpdate.onclick = () => updateRecipe();
 DOM.buttonDelete.onclick = () => deleteRecipe(); 
 
 get();
+
+let inputs = document.querySelectorAll(`input`);
+DOM.buttonAddRecipe.addEventListener('click', () => {
+    inputs.forEach(input => input.value = '');
+});
+
+DOM.buttonUpdate.addEventListener('click', () => {
+    inputs.forEach(input => input.value = '');
+});
+
+DOM.buttonDelete.addEventListener('click', () => {
+    inputs.forEach(input => input.value = '');
+});
