@@ -33,17 +33,30 @@ I used the feature branch model. I branched out from main to dev and from dev to
 I used pull requests to merge the feature branch into dev.
 ![](Documentation/pull-request-1.png)
 
-###Database
+### Database
 Database that I used: mysql 
-![](Documentation/HobbyProjectERD.png)
+![](Documentation/Hobbyproject-ERD.png)
 
-###Backend 
+### Backend 
 Backend was created using Java Spring Boot Framework. 
 ![](Documentation/backend.png)
 
-###Integration Testing
-I used MockMVC
+### Integration Testing
+I used MockMVC to test the application. 
 ![](Documentation/test.png)
+
+Test Coverage 
+![](Documentation/test-coverage.png)
+
+### Frontend 
+* Build from HTML, CSS and JavaScipt
+* Implemented Bootstrap framework 
+* Javascript used for API integration using axios
+![](Documentation/front-end.png)
+
+
+
+
 
 
 
