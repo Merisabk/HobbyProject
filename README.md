@@ -70,6 +70,13 @@ git@github.com:Merisabk/HobbyProject.git
 $ java -jar HobbyProject-0.0.1-SNAPSHOT.jar
 ```
 
+- In order to interact with this application through a browser navigate to http://localhost:8080/ while the application is running.
+
+## Stopping the Application 
+* In order to stop the application from the git bash terminal that is running the server press CTRL + C
+
+
+
 
 
 
