@@ -33,3 +33,20 @@ I used the feature branch model. I branched out from main to dev and from dev to
 I used pull requests to merge the feature branch into dev.
 ![](Documentation/pull-request-1.png)
 
+###Database
+Database that I used: mysql 
+![](Documentation/HobbyProjectERD.png)
+
+###Backend 
+Backend was created using Java Spring Boot Framework. 
+![](Documentation/backend.png)
+
+###Integration Testing
+I used MockMVC
+![](Documentation/test.png)
+
+
+
+
+
+
